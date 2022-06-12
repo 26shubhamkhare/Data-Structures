@@ -10,8 +10,7 @@ void swap(int arr[], int size)
       //comparing if adj. element is present in array
       if(i+1<size)
       {
-      swap(arr[i],arr[i+1]);
-      }
+      swap(arr[i],arr[i+1]);          //if(i+1<size) {  temp = arr[i+1]; arr[i+1] = arr[i];  arr[i] = temp; }  without inbuilt function
       }
   //Printing Alternate elements here:
       for(int i=0;i<size;i++)
