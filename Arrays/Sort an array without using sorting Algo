@@ -1,0 +1,48 @@
+class Solution {
+public:
+    void sortColors(vector<int>& arr) {
+        int lo = 0;
+        int mid = 0;
+        int hi = arr.size()-1;
+        
+        while(mid <= hi){
+            
+            switch(arr[mid])
+            {
+                // if Element is 0    
+                case 0: swap(arr[mid++], arr[lo++]);
+                    break;
+                // if Element is 1    
+                case 1:  mid++;
+                    break;
+                // if Element is 2
+                case 2: swap(arr[mid], arr[hi--]);
+                    break;
+            }
+        }
+    }
+};
+
+/*T.C : O(N)
+S.C: O(1)
+
+Approach 1: 
+1 .we can count number of 0's 1's & 2's
+2. than we can run a loop and put all 0's than 1's and 2's
+3. but time complexity is o(n)+o(n) = o(2n) there are two pass
+
+// We use dutch national flag algorithm
+Approach 2:
+1. take 3 pointer lo, mid, hi.
+2. the lo and mid will be at 0th index and hi will be at last index.
+3. if the element is 0 than swap(arr[lo++], arr[mid++])
+4. if the element is 1: just mid++
+5. if the element is 2: swap(arr[mid], arr[hi--])
+6.  run this loop till mid <=end 
+
+* All 0's will be on left hand side
+*  All 2's will be on right hand side
+*  All 1's will be between lo and hi.
+
+Shubham Khare */
+
